@@ -1,0 +1,7 @@
+Se logró cumplir con el objetivo principal del proyecto: automatizar los endpoints de la API PetStore utilizando Karate DSL, validando los procesos de creación, consulta, actualización y eliminación de usuarios.
+Durante el desarrollo se identificó un problema de sincronización propio de la API de PetStore, ya que al ser un servicio demo, gratuito y público, recibe múltiples solicitudes en paralelo que afectan la disponibilidad inmediata de los datos recién creados o actualizados.
+
+Para mitigar este inconveniente fue necesario implementar estrategias como:
+Esperas explícitas (Thread.sleep) para dar tiempo a que la API procese los cambios.
+Reintentos automáticos con retry until para validar que el estado esperado del recurso se sincronice antes de continuar con las verificaciones.
+Estas medidas permitieron estabilizar la ejecución de los escenarios, asegurando que las pruebas funcionen de manera confiable a pesar de las limitaciones de la API pública.
